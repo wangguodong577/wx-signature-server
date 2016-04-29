@@ -29,8 +29,8 @@ exports.init = function (app) {
 
 	app.get('/wechat/code',function(req,res){
 		https.get('https://open.weixin.qq.com/connect/oauth2/authorize', function(req,res) {
-			console.log('statusCode: ', res.statusCode);
-			console.log('headers: ', res.headers);
+			console.log(JSON.stringify(req));
+			console.log(JSON.stringify(res));
 		})
 	});
 
