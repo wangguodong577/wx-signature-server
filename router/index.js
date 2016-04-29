@@ -10,7 +10,10 @@ exports.init = function (app) {
 	
 	app.get('/wechat',function(req,res){
 		var url = 'http://www.boruifangzhou.com/demo.html' //获取当前url
-		// console.log(url);
+		console.log(url);
+		var arg = url.parse(req.url, true).query;
+		console.log(arg);
+
 		signature.sign(url,function(signatureMap){
 			signatureMap.appId = wechat_cfg.appid;
 			// res.writeHead(200, {'Content-Type': 'application/json;charset=utf-8'});
