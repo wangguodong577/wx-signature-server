@@ -9,7 +9,7 @@ exports.init = function (app) {
 
 	
 	app.get('/wechat',function(req,res){
-		var url = 'http://www.boruifangzhou.com/demo2.html' //获取当前url
+		var url = 'http://www.boruifangzhou.com/demo.html' //获取当前url
 		// console.log(url);
 		signature.sign(url,function(signatureMap){
 			signatureMap.appId = wechat_cfg.appid;
