@@ -10,7 +10,7 @@ exports.init = function (app) {
 	
 	app.get('/wechat',function(req,res){
 		//var url = 'http://www.boruifangzhou.com/demo.html' //获取当前url
-		var arg = url1.parse(req.url, true).query;
+		var arg = url1.parse(req.url).query;
 		var url = arg.url;
 		console.log(arg);
 		console.log(url);
