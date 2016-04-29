@@ -24,7 +24,12 @@ exports.init = function (app) {
 			// console.log(signatureMap)
 		});
 	});
-	
+
+	app.get('/wechat/code',function(req,res){
+		app.get('https://open.weixin.qq.com/connect/oauth2/authorize',req.initParams, function(req,res){
+		});
+	});
+
     app.post('/wechat',function(req,res){
      	   var url = req.body.url; //获取当前url
        	 signature.sign(url,function(signatureMap){
