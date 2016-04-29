@@ -4,14 +4,14 @@ exports.init = function (app) {
 	var https = require('https');
 	var cache = require('memory-cache');
 	var sha1 = require('sha1'); //签名算法
-	//var url = require('url');
+	var url1 = require('url');
 	var signature = require('../sign/signature');
 
 	
 	app.get('/wechat',function(req,res){
 		var url = 'http://www.boruifangzhou.com/demo.html' //获取当前url
 		console.log(url);
-		var arg = url.parse(req.url, true).query;
+		var arg = url1.parse(req.url, true).query;
 		console.log(arg);
 
 		signature.sign(url,function(signatureMap){
