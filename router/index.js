@@ -1,6 +1,7 @@
 exports.init = function (app) {
 	var wechat_cfg = require('../config/wechat.cfg');
 	var http = require('http');
+	var https = require('https');
 	var cache = require('memory-cache');
 	var sha1 = require('sha1'); //签名算法
 	//var url = require('url');
@@ -25,9 +26,12 @@ exports.init = function (app) {
 		});
 	});
 
+
 	app.get('/wechat/code',function(req,res){
-		app.get('https://open.weixin.qq.com/connect/oauth2/authorize',req.initParams, function(req,res){
-		});
+		https.get('https://open.weixin.qq.com/connect/oauth2/authorize', function(req,res) {
+			console.log('statusCode: ', res.statusCode);
+			console.log('headers: ', res.headers);
+		})
 	});
 
     app.post('/wechat',function(req,res){
